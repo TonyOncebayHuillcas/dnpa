@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "748782987342",
+    "firebase_url": "https://dnp-bika.firebaseio.com",
+    "project_id": "dnp-bika",
+    "storage_bucket": "dnp-bika.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748782987342:android:049fb4e7b4aba415",
+        "android_client_info": {
+          "package_name": "com.example.dpna"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "748782987342-usvclir6jf5b45po2nkf2p85qd1fqg6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCfsfDnY6NdSlJ4bKmY_7M0cGMALCnhrQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "748782987342-usvclir6jf5b45po2nkf2p85qd1fqg6c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
