@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import com.example.dpna.config.AsyncResponse;
 
 import com.example.dpna.ClassTask.LoginTask;
 import com.example.dpna.R;
@@ -33,16 +34,14 @@ public class LoginActivity extends AppCompatActivity {
         cd = new ConnectionDetector(context);
         et_username= (EditText) findViewById(R.id.et_username);
         et_password = (EditText) findViewById(R.id.et_password);
+        et_username.setText("Tony");
+        et_password.setText("passto1234");
 
         btn_login= (Button) findViewById(R.id.btn_login);
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, InitActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-                finish();
-                /*
+
                 if (cd.isConnectingToInternet()) {
                     if(et_username.getText().toString().length()==0){
                         et_username.setError("Ingrese Usuario");
@@ -51,26 +50,32 @@ public class LoginActivity extends AppCompatActivity {
                     } else {
                         ConstValue.setUsername(et_username.getText().toString());
                         ConstValue.setPassword(et_password.getText().toString());
-                        ConstValue.setAccept(false);
-                        new LoginTask().execute(true);
-                        if(ConstValue.getAccept()){
-                            Intent intent = new Intent(LoginActivity.this, InitActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                            startActivity(intent);
-                            finish();
-                        } else {
-                            Toast.makeText(getApplicationContext(), "BIKA - Usuario y/o contraseña incorrecta, porfavor intente nuevamente.", Toast.LENGTH_LONG).show();
-                        }
+                        ConstValue.setContext(context);
+                        new LoginTask(new AsyncResponse(){
+                            @Override
+                            public void processFinish(String output){
+                                if(ConstValue.accept==true){
+                                    Intent intent = new Intent(LoginActivity.this, InitActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "BIKA - Credenciales invalidas.", Toast.LENGTH_LONG).show();
+                                    LoginTask.dialog.cancel();
+                                }
 
+                            }
+                        }).execute();
                     }
 
                 } else {
-                    Toast.makeText(getApplicationContext(), "CloudTMP - Su dispositivo no cuenta con conexión a internet.", Toast.LENGTH_LONG).show();
-                }*/
+                    Toast.makeText(getApplicationContext(), "BIKA - Su dispositivo no cuenta con conexión a internet.", Toast.LENGTH_LONG).show();
+                }
 
             }
 
         });
 
     }
+
 }

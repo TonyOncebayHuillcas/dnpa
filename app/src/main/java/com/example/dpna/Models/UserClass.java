@@ -7,16 +7,18 @@ public class UserClass {
     public String password;
     public double peso;
     public double estatura;
-    public String fechaNacimiento;
+    public String token;
     public double km;
 
-    public UserClass(int id, String user, String password, double peso, double estatura, String fechaNacimiento, double km) {
+    public UserClass(){}
+
+    public UserClass(int id, String user, String password, double peso, double estatura, String token, double km) {
         this.id = id;
         this.user = user;
         this.password = password;
         this.peso = peso;
         this.estatura = estatura;
-        this.fechaNacimiento = fechaNacimiento;
+        this.token = token;
         this.km = km;
     }
 
@@ -60,12 +62,12 @@ public class UserClass {
         this.estatura = estatura;
     }
 
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
+    public String getToken() {
+        return token;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public double getKm() {

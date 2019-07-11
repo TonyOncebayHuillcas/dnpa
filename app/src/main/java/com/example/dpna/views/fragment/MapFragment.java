@@ -167,11 +167,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                     CameraPosition cameraPosition = new CameraPosition.Builder()
                             .target(new LatLng(latitudOrigen,longitudOrigen))
                             .zoom(17)
-                            .bearing(0) //rotación del mapa
                             .build();
                     map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
-                    String url ="https://maps.googleapis.com/maps/api/directions/json?origin="+latitudOrigen+","+longitudOrigen+"&destination=-16.382651,-71.573851"+"&key=AIzaSyBad93y39OWeaVUhMuLIMqlmgEnxeD64fA";
+                    String url ="https://maps.googleapis.com/maps/api/directions/json?origin="+latitudOrigen+","+longitudOrigen+"&destination=-16.382651,-71.573851";
+                    //String url ="https://maps.googleapis.com/maps/api/directions/json?origin="+latitudOrigen+","+longitudOrigen+"&destination=-16.382651,-71.573851"+"&key=AIzaSyBad93y39OWeaVUhMuLIMqlmgEnxeD64fA";
                     map.addMarker(new MarkerOptions().position(destino).title("Destino"));
                     RequestQueue queue = Volley.newRequestQueue(getActivity());
                     StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {

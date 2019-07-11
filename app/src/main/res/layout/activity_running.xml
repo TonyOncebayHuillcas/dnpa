@@ -58,6 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" >
                     <TextView
+                        android:id="@+id/tv_speed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="28sp"
@@ -66,6 +67,8 @@
                         android:text="-- : --"
                         android:textStyle="bold"/>
                     <TextView
+                        android:id="@+id/tv_distance"
+                        android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="28sp"
@@ -74,6 +77,7 @@
                         android:text="-- : --"
                         android:textStyle="bold"/>
                     <TextView
+                        android:id="@+id/tv_ganancia"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="28sp"

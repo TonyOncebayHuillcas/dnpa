@@ -1,15 +1,23 @@
 package com.example.dpna.config;
 
+import android.app.Activity;
 import android.content.Context;
 
 public class ConstValue {
     public static String SITE_URL = "https://biciapp-app.herokuapp.com";
+    public static String LOGIN = SITE_URL + "/accounts/api/login/";
     public static String TIENDA = SITE_URL + "/bici/stores/";
 
-    public static Boolean accept;
+    public static Boolean accept = false;
 
-    public static Boolean getAccept() { return accept; }
-    public static void setAccept(Boolean accept) { ConstValue.accept = accept; }
+
+    public static Context context;
+    public static Context getContext() { return context; }
+    public static void setContext(Context context) { ConstValue.context = context; }
+
+    public static Activity activity;
+    public static Activity getActivity() { return activity; }
+    public static void setActivity(Activity activity) { ConstValue.activity = activity; }
 
     public static String username;
     public static String getUsername() { return username; }
